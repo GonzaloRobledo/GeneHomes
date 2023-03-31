@@ -1,0 +1,4 @@
+# Hacer la paginacion
+# Crear el Json con los datos (o firebase para ir un poco mas alla)
+# Hacer las demas paginas/secciones
+# Hacerla totalmente responsive

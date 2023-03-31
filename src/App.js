@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { WppIcon } from './components/Commons/WppIcon'
+import { Footer } from './components/Footer/Footer'
+import { Header } from './components/Header/Header'
+import { SecContact } from './components/Main/Contact.js/SecContact'
+import { AppProvider } from './context/AppContext'
+import { MainIndex } from './routes/MainIndex'
+import { MainInfoPropertie } from './routes/MainInfoPropertie'
+import { MainProperties } from './routes/MainProperties'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppProvider>
+      <BrowserRouter>
+        <Header />
+        <main>
+          <Routes>
+            <Route path='/' element={<MainIndex />} />
+            <Route path='/properties' element={<MainProperties />} />
+            <Route path='/properties/:id' element={<MainInfoPropertie />} />
+          </Routes>
+          <SecContact />
+          <WppIcon />
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </AppProvider>
+  )
 }
 
-export default App;
+export default App
